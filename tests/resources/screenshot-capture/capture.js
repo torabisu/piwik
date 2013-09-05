@@ -76,6 +76,7 @@ PageRenderer.prototype = {
                 try {
                     self._setCorrectViewportSize();
                     self.webpage.render(self.outputPath);
+                    self.webpage.render(self.outputPath); // render twice to try and avoid random failures
 
                     self._renderNextUrl();
                 } catch (e) {
