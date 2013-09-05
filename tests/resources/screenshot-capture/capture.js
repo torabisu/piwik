@@ -19,12 +19,13 @@ var PageRenderer = function() {
 
 PageRenderer.prototype = {
     renderAll: function () {
-        var firstUrl = this.urls[0].substring(0, this.urls[0].indexOf('?'))
+        var firstUrl = this.urls[0][1].substring(0, this.urls[0][1].indexOf('?'))
                      + '?module=API&action=listAllAPI&idSite=1&period=day&date=today';
 
         // open a page so all resources get preloaded
+        var self = this;
         this.webpage.open(firstUrl, function () {
-            this._saveCurrentUrl();
+            self._saveCurrentUrl();
         });
     },
 

@@ -815,6 +815,8 @@ RowEvolutionSeriesToggle.prototype.beforeReplot = function () {
 
 (function ($) {
 
+    var labelFont = window.piwik.jqplotLabelFont || 'Arial';
+
     $.jqplot.CanvasLegendRenderer = function (options) {
         // canvas for the legend
         this.legendCanvas = null;
@@ -946,6 +948,8 @@ RowEvolutionSeriesToggle.prototype.beforeReplot = function () {
 
 (function ($) {
 
+    var labelFont = window.piwik.jqplotLabelFont || 'Arial';
+    
     $.jqplot.PieLegend = function (options) {
         // canvas for the legend
         this.pieLegendCanvas = null;
