@@ -75,8 +75,10 @@ PageRenderer.prototype = {
             if (message == "__AJAX_DONE__") {
                 try {
                     self._setCorrectViewportSize();
+                    self.webpage.evaluate(function () {
+                        return '';
+                    }); // try to execute javascript to make sure webpage fully renders
                     self.webpage.render(self.outputPath);
-                    self.webpage.render(self.outputPath); // render twice to try and avoid random failures
 
                     self._renderNextUrl();
                 } catch (e) {
