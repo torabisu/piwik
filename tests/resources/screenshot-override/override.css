@@ -26,3 +26,11 @@
 * {
     font-family: 'Open Sans';
 }
+
+/**
+ * NOTE: this is not an ideal solution. the unicode down triangle (and other unicode characters) should
+ * be removed if possible.
+ */
+#languageSelection .ui-autocomplete-input:after,.sites_autocomplete--dropdown .custom_select_main_link:before {
+    content:"";
+}

@@ -57,7 +57,7 @@ abstract class UITest extends IntegrationTestCase
             list($name, $urlQuery) = $testInfo;
 
             list($processedScreenshotPath, $expectedScreenshotPath) = self::getProcessedAndExpectedScreenshotPaths($name);
-            $urls[] = array($processedScreenshotPath, self::getProxyUrl() . $urlQuery . '&token_auth=' . \Test_Piwik_BaseFixture::getTokenAuth());
+            $urls[] = array($processedScreenshotPath, self::getProxyUrl() . $urlQuery);
         }
         
         echo "Generating screenshots...\n";
@@ -104,7 +104,6 @@ abstract class UITest extends IntegrationTestCase
         
         exec($cmd, $output, $result);
         $output = implode("\n", $output);
-        echo "\nOUTPUT: $output\n\n";
         if ($result !== 0
             || strpos($output, "ERROR") !== false
         ) {
