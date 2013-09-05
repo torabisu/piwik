@@ -38,4 +38,11 @@
     window.piwik.ajaxRequestFinished = triggerRenderIfNoAjax;
     window.piwik._triggerRenderInsane = triggerRenderInsane;
 
+    window.piwik.jqplotLabelFont = 'Open Sans';
+
+    // in case there are no ajax requests, try triggering after a sec
+    setTimeout(function () {
+        window.piwik.ajaxRequestFinished();
+    }, 1000);
+
 }(jQuery));

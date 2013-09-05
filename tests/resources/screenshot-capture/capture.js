@@ -11,12 +11,21 @@ var PageRenderer = function() {
     this.outputPath = '';
     this.url = '';
 
+    this.webpage = require('webpage').create();
+    this._setupWebpageEvents();
+
     this._setScriptTimeout();
 };
 
 PageRenderer.prototype = {
     renderAll: function () {
-        this._saveCurrentUrl();
+        var firstUrl = this.urls[0].substring(0, this.urls[0].indexOf('?'))
+                     + '?module=API&action=listAllAPI&idSite=1&period=day&date=today';
+
+        // open a page so all resources get preloaded
+        this.webpage.open(firstUrl, function () {
+            this._saveCurrentUrl();
+        });
     },
 
     _saveCurrentUrl: function () {
@@ -31,12 +40,9 @@ PageRenderer.prototype = {
         console.log("SAVING " + this.url + " at " + this._getElapsedExecutionTime());
 
         if (this.webpage) {
-            this.webpage.close();
+            //this.webpage.close();
         }
 
-        this.webpage = require('webpage').create();
-        this._setupWebpageEvents();
-        
         this.webpage.viewportSize = {width:1350, height:768};
 
         var self = this;
@@ -47,15 +53,6 @@ PageRenderer.prototype = {
 
     _setPageTimeouts: function () {
         var url = this.url, self = this;
-
-        // in case there are no ajax requests, try triggering after a sec
-        setTimeout(function () {
-            if (url == self.url) {
-                self.webpage.evaluate(function () {
-                    window.piwik.ajaxRequestFinished();
-                });
-            }
-        }, 1000)
 
         // only allowed at most one minute to load
         setTimeout(function () {

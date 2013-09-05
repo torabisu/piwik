@@ -13,6 +13,8 @@
     var dataTable = window.dataTable,
         dataTablePrototype = dataTable.prototype;
 
+    var labelFont = window.piwik.jqplotLabelFont || 'Arial';
+
     /**
      * DataTable UI class for jqPlot graph datatable visualizations.
      * 
@@ -101,7 +103,7 @@
                     tickOptions: {
                         showMark: false,
                         fontSize: '11px',
-                        fontFamily: 'Arial'
+                        fontFamily: labelFont
                     },
                     rendererOptions: {
                         drawBaseline: false
@@ -860,7 +862,7 @@ RowEvolutionSeriesToggle.prototype.beforeReplot = function () {
 
         var ctx = legend.legendCanvas._ctx;
         ctx.save();
-        ctx.font = '11px Arial';
+        ctx.font = '11px ' + labelFont;
 
         // render series names
         var x = 0;
@@ -996,7 +998,7 @@ RowEvolutionSeriesToggle.prototype.beforeReplot = function () {
         var ctx = legend.pieLegendCanvas._ctx;
         ctx.save();
 
-        ctx.font = '11px Arial';
+        ctx.font = '11px ' + labelFont;
 
         // render labels
         var height = legend.pieLegendCanvas._elem.height();
