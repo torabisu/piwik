@@ -20,18 +20,6 @@
         }
     };
 
-    var waitABunch = function (individualWaitTime, waitCount, callback, current) {
-        current = typeof current == 'undefined' ? 0 : current;
-
-        if (current < waitCount) {
-            setTimeout(function () {
-                waitABunch(individualWaitTime, waitCount, callback, current + 1);
-            }, individualWaitTime);
-        } else {
-            callback();
-        }
-    }
-
     var triggerRenderIfNoAjax = function () {
         setTimeout(function () { // allow other javascript to execute in case they execute ajax/add images/set the src of images
             if (window.globalAjaxQueue.active === 0) {
@@ -39,7 +27,7 @@
                     waitForAll: true,
                     finished: function () {
                         // wait some more to make sure other javascript is executed & the last image is rendered
-                        waitABunch(100, 10, triggerRender);
+                        setTimeout(triggerRender, 2000);
                     },
                 });
             }
