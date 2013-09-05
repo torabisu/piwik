@@ -34,3 +34,6 @@
 #languageSelection .ui-autocomplete-input:after,.sites_autocomplete--dropdown .custom_select_main_link:before {
     content:"";
 }
+.sites_autocomplete .custom_select_ul_list li a, .sites_autocomplete .custom_select_all a, .sites_autocomplete .custom_select_main_link > span {
+    text-overflow: clip;
+}
