@@ -13,8 +13,6 @@
     var dataTable = window.dataTable,
         dataTablePrototype = dataTable.prototype;
 
-    var labelFont = window.piwik.jqplotLabelFont || 'Arial';
-
     /**
      * DataTable UI class for jqPlot graph datatable visualizations.
      * 
@@ -103,7 +101,7 @@
                     tickOptions: {
                         showMark: false,
                         fontSize: '11px',
-                        fontFamily: labelFont
+                        fontFamily: window.piwik.jqplotLabelFont || 'Arial'
                     },
                     rendererOptions: {
                         drawBaseline: false
@@ -815,8 +813,6 @@ RowEvolutionSeriesToggle.prototype.beforeReplot = function () {
 
 (function ($) {
 
-    var labelFont = window.piwik.jqplotLabelFont || 'Arial';
-
     $.jqplot.CanvasLegendRenderer = function (options) {
         // canvas for the legend
         this.legendCanvas = null;
@@ -864,7 +860,7 @@ RowEvolutionSeriesToggle.prototype.beforeReplot = function () {
 
         var ctx = legend.legendCanvas._ctx;
         ctx.save();
-        ctx.font = '11px ' + labelFont;
+        ctx.font = '11px ' + (window.piwik.jqplotLabelFont || 'Arial');
 
         // render series names
         var x = 0;
@@ -948,8 +944,6 @@ RowEvolutionSeriesToggle.prototype.beforeReplot = function () {
 
 (function ($) {
 
-    var labelFont = window.piwik.jqplotLabelFont || 'Arial';
-    
     $.jqplot.PieLegend = function (options) {
         // canvas for the legend
         this.pieLegendCanvas = null;
@@ -1002,7 +996,7 @@ RowEvolutionSeriesToggle.prototype.beforeReplot = function () {
         var ctx = legend.pieLegendCanvas._ctx;
         ctx.save();
 
-        ctx.font = '11px ' + labelFont;
+        ctx.font = '11px ' + (window.piwik.jqplotLabelFont || 'Arial');
 
         // render labels
         var height = legend.pieLegendCanvas._elem.height();
