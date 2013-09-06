@@ -51,17 +51,25 @@ abstract class UITest extends IntegrationTestCase
         // make sure processed & expected dirs exist
         self::makeDirsAndLinks();
 
-        // run slimerjs/phantomjs w/ all urls so we only invoke it once
-        $urls = array();
-        foreach (static::getUrlsForTesting() as $testInfo) {
-            list($name, $urlQuery) = $testInfo;
+        // run slimerjs/phantomjs w/ all urls so we only invoke it once per 25 entries (travis needs
+        // there to be output)
+        $urlsToTest = static::getUrlsForTesting();
 
-            list($processedScreenshotPath, $expectedScreenshotPath) = self::getProcessedAndExpectedScreenshotPaths($name);
-            $urls[] = array($processedScreenshotPath, self::getProxyUrl() . $urlQuery);
+        reset($urlsToTest);
+        for ($i = 0; $i < count($urlsToTest); $i += 25) {
+            $urls = array();
+            for ($j = $i; $j != $i + 25 && $j < count($urlsToTest); ++$j) {
+                list($name, $urlQuery) = current($urlsToTest);
+
+                list($processedScreenshotPath, $expectedScreenshotPath) = self::getProcessedAndExpectedScreenshotPaths($name);
+                $urls[] = array($processedScreenshotPath, self::getProxyUrl() . $urlQuery);
+
+                next($urlsToTest);
+            }
+            
+            echo "Generating screenshots...\n";
+            self::runCaptureProgram($urls);
         }
-        
-        echo "Generating screenshots...\n";
-        self::runCaptureProgram($urls);
     }
     
     public static function tearDownAfterClass()
