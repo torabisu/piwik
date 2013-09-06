@@ -33,7 +33,7 @@ class UsersManager extends \Piwik\Plugin
         return array(
             'AdminMenu.add'                 => 'addMenu',
             'AssetManager.getJsFiles'       => 'getJsFiles',
-            'AssetManager.getCssFiles'      => 'getCssFiles',
+            'AssetManager.getStylesheetFiles'      => 'getStylesheetFiles',
             'SitesManager.deleteSite'       => 'deleteSite',
             'Common.fetchWebsiteAttributes' => 'recordAdminUsersInCache',
         );
@@ -62,7 +62,7 @@ class UsersManager extends \Piwik\Plugin
     /**
      * Delete user preferences associated with a particular site
      */
-    public function deleteSite(&$idSite)
+    public function deleteSite($idSite)
     {
         Option::getInstance()->deleteLike('%\_' . API::PREFERENCE_DEFAULT_REPORT, $idSite);
     }
@@ -81,9 +81,9 @@ class UsersManager extends \Piwik\Plugin
     /**
      * Get CSS files
      */
-    function getCssFiles(&$cssFiles)
+    function getStylesheetFiles(&$stylesheets)
     {
-        $cssFiles[] = "plugins/UsersManager/stylesheets/usersManager.less";
+        $stylesheets[] = "plugins/UsersManager/stylesheets/usersManager.less";
     }
 
     /**
