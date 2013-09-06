@@ -40,10 +40,6 @@ PageRenderer.prototype = {
 
         console.log("SAVING " + this.url + " at " + this._getElapsedExecutionTime());
 
-        if (this.webpage) {
-            //this.webpage.close();
-        }
-
         this.webpage.viewportSize = {width:1350, height:768};
 
         var self = this;

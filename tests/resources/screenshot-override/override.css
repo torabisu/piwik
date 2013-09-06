@@ -1,30 +1,30 @@
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Piwik Test Override';
   font-style: normal;
   font-weight: 400;
-  src: url(tests/resources/screenshot-override/open_sans.woff) format('woff');
+  src: url(tests/resources/screenshot-override/DejaVuSans.ttf) format('ttf');
 }
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Piwik Test Override';
   font-style: normal;
   font-weight: 700;
-  src: url(tests/resources/screenshot-override/open_sans_b.woff) format('woff');
+  src: url(tests/resources/screenshot-override/DejaVuSans-Bold.ttf) format('ttf');
 }
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Piwik Test Override';
   font-style: italic;
   font-weight: 400;
-  src: url(tests/resources/screenshot-override/open_sans_i.woff) format('woff');
+  src: url(tests/resources/screenshot-override/DejaVuSans-Oblique.ttf) format('ttf');
 }
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Piwik Test Override';
   font-style: italic;
   font-weight: 700;
-  src: url(tests/resources/screenshot-override/open_sans_bi.woff) format('woff');
+  src: url(tests/resources/screenshot-override/DejaVuSans-BoldOblique.ttf) format('ttf');
 }
 
 * {
-    font-family: 'Open Sans';
+    font-family: 'Piwik Test Override';
 }
 
 /**
@@ -32,8 +32,8 @@
  * be removed if possible (and potentially replaced w/ images).
  */
 #languageSelection .ui-autocomplete-input:after,.sites_autocomplete--dropdown .custom_select_main_link:before {
-    content:"";
+    /*content:"";*/
 }
 .sites_autocomplete .custom_select_ul_list li a, .sites_autocomplete .custom_select_all a, .sites_autocomplete .custom_select_main_link > span {
-    text-overflow: clip;
+    /*text-overflow: clip;*/
 }
