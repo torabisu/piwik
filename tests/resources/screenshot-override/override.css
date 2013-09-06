@@ -2,25 +2,25 @@
   font-family: 'Piwik Test Override';
   font-style: normal;
   font-weight: 400;
-  src: url(tests/resources/screenshot-override/DejaVuSans.ttf) format('ttf');
+  src: url(tests/resources/screenshot-override/DejaVuSans.ttf);/* format('ttf');*/
 }
 @font-face {
   font-family: 'Piwik Test Override';
   font-style: normal;
   font-weight: 700;
-  src: url(tests/resources/screenshot-override/DejaVuSans-Bold.ttf) format('ttf');
+  src: url(tests/resources/screenshot-override/DejaVuSans-Bold.ttf);/* format('ttf');*/
 }
 @font-face {
   font-family: 'Piwik Test Override';
   font-style: italic;
   font-weight: 400;
-  src: url(tests/resources/screenshot-override/DejaVuSans-Oblique.ttf) format('ttf');
+  src: url(tests/resources/screenshot-override/DejaVuSans-Oblique.ttf);/* format('ttf');*/
 }
 @font-face {
   font-family: 'Piwik Test Override';
   font-style: italic;
   font-weight: 700;
-  src: url(tests/resources/screenshot-override/DejaVuSans-BoldOblique.ttf) format('ttf');
+  src: url(tests/resources/screenshot-override/DejaVuSans-BoldOblique.ttf);/* format('ttf');*/
 }
 
 * {
