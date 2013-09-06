@@ -24,7 +24,7 @@
 }
 
 * {
-    font-family: 'Piwik Test Override';
+    font-family: 'Piwik Test Override', serif; /* serif so we know when the font isn't being used */
 }
 
 /**
@@ -36,4 +36,4 @@
 }
 .sites_autocomplete .custom_select_ul_list li a, .sites_autocomplete .custom_select_all a, .sites_autocomplete .custom_select_main_link > span {
     /*text-overflow: clip;*/
-}
+};
