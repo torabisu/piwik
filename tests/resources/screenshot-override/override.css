@@ -23,10 +23,6 @@
   src: url(tests/resources/screenshot-override/DejaVuSans-BoldOblique.woff) format('woff');
 }
 
-* {
-    /*font-family: 'Piwik Test Override';*/
-}
-
 /**
  * NOTE: this is not an ideal solution. the unicode down triangle (and other unicode characters) should
  * be removed if possible (and potentially replaced w/ images).

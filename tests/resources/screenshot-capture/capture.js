@@ -44,10 +44,8 @@ PageRenderer.prototype = {
 
         this.webpage.viewportSize = {width:1350, height:768};
 
-        var self = this;
-        this.webpage.open(this.url, function () {
-            self._setPageTimeouts();
-        });
+        this.webpage.open(this.url);
+        this._setPageTimeouts();
     },
 
     _setPageTimeouts: function () {
