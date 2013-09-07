@@ -120,7 +120,7 @@ PageRenderer.prototype = {
         setTimeout(function() {
             console.log("ERROR: Timed out!");
             app.exit(1);
-        }, Math.max(1000 * 15 * this.urls.length, 1000 * 60 * 5));
+        }, Math.max(1000 * 15 * this.urls.length, 1000 * 60 * 10));
     },
 };
 
