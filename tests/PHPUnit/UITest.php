@@ -26,10 +26,8 @@ abstract class UITest extends IntegrationTestCase
     
     public static function setUpBeforeClass()
     {
-        if (!self::isXvfbAvailable()) {
-            self::markTestSkipped("xvfb is not available, skipping UI integration tests. (install with 'sudo apt-get install xvfb')");
-        } else if (self::CAPTURE_PROGRAM == 'slimerjs'
-                   && !self::isSlimerJsAvailable()
+        if (self::CAPTURE_PROGRAM == 'slimerjs'
+            && !self::isSlimerJsAvailable()
         ) {
             self::markTestSkipped("slimerjs is not available, skipping UI integration tests. "
                                 . "(install by downloading http://slimerjs.org/download.html)");
@@ -108,7 +106,6 @@ abstract class UITest extends IntegrationTestCase
     {
         file_put_contents(PIWIK_INCLUDE_PATH . '/tmp/urls.txt', json_encode($urlInfo));
         $cmd = self::CAPTURE_PROGRAM . " \"" . PIWIK_INCLUDE_PATH . "/tests/resources/screenshot-capture/capture.js\" 2>&1";
-        #$cmd = 'xvfb-run --server-args="-screen 0, 1024x768x24" ' . $cmd;
         
         exec($cmd, $output, $result);
         $output = implode("\n", $output);
@@ -148,11 +145,6 @@ abstract class UITest extends IntegrationTestCase
         return self::isProgramAvailable('phantomjs');
     }
     
-    private static function isXvfbAvailable()
-    {
-        return self::isProgramAvailable('xvfb-run');
-    }
-
     private static function isProgramAvailable($name)
     {
         exec($name . ' --help 2>&1', $output, $result);
@@ -204,7 +196,7 @@ abstract class UITest extends IntegrationTestCase
         foreach (self::$recursiveProxyLinkNames as $linkName) {
             $wholePath = PIWIK_INCLUDE_PATH . '/tests/PHPUnit/proxy/' . $linkName;
             if (file_exists($wholePath)) {
-                //unlink($wholePath);
+                unlink($wholePath);
             }
         }
     }
