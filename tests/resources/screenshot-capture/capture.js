@@ -21,14 +21,7 @@ var PageRenderer = function() {
 
 PageRenderer.prototype = {
     renderAll: function () {
-        var firstUrl = this.urls[0][1].substring(0, this.urls[0][1].indexOf('?'))
-                     + '?module=API&action=listAllAPI&idSite=1&period=day&date=today';
-
-        // open a page so all resources get preloaded
-        var self = this;
-        this.webpage.open(firstUrl, function () {
-            self._saveCurrentUrl();
-        });
+        this._saveCurrentUrl();
     },
 
     _saveCurrentUrl: function () {
@@ -41,6 +34,13 @@ PageRenderer.prototype = {
         this.url = this.urls[this.urlIndex][1];
 
         console.log("SAVING " + this.url + " at " + this._getElapsedExecutionTime());
+
+        if (this.webpage) {
+            this.webpage.close();
+        }
+
+        this.webpage = require('webpage').create();
+        this._setupWebpageEvents();
 
         this.webpage.viewportSize = {width:1350, height:768};
 
