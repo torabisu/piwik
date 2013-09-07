@@ -230,7 +230,7 @@ abstract class IntegrationTestCase extends PHPUnit_Framework_TestCase
         }
         \Piwik\PluginsManager::getInstance()->unloadPlugins();*/
         if ($dropDatabase) {
-            //Piwik::dropDatabase();
+            Piwik::dropDatabase();
         }
         Manager::getInstance()->deleteAll();
         Option::getInstance()->clearCache();
