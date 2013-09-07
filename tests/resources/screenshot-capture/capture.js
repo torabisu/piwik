@@ -2,7 +2,7 @@ var fs = require('fs');
 var app = typeof slimer === 'undefined' ? phantom : slimer;
 var readFileSync = fs.readFileSync || fs.read;
 
-var VERBOSE = true;
+var VERBOSE = false;
 
 var PageRenderer = function() {
     this.start = new Date();

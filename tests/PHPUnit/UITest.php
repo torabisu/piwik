@@ -108,7 +108,7 @@ abstract class UITest extends IntegrationTestCase
     {
         file_put_contents(PIWIK_INCLUDE_PATH . '/tmp/urls.txt', json_encode($urlInfo));
         $cmd = self::CAPTURE_PROGRAM . " \"" . PIWIK_INCLUDE_PATH . "/tests/resources/screenshot-capture/capture.js\" 2>&1";
-        $cmd = 'xvfb-run --server-args="-screen 0, 1024x768x24" ' . $cmd;
+        #$cmd = 'xvfb-run --server-args="-screen 0, 1024x768x24" ' . $cmd;
         
         exec($cmd, $output, $result);
         $output = implode("\n", $output);

@@ -42,7 +42,7 @@
 
     // in case there are no ajax requests, try triggering after a sec
     setTimeout(function () {
-        window.piwik.ajaxRequestFinished();
+        triggerRenderIfNoAjax();
     }, 1000);
 
 }(jQuery));

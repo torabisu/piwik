@@ -7,12 +7,12 @@ sudo apt-get install -qq xmlstarlet
 # Install phantomjs 1.9.1 for UI tests
 if [ "$TEST_DIR" = "UI" ];
 then
-    #cd tmp
-    #wget "https://phantomjs.googlecode.com/files/phantomjs-1.9.1-linux-x86_64.tar.bz2" -O phantomjs.tar.bz2
-    #tar xvjf phantomjs.tar.bz2
-    #cd phantomjs*
-    #export PATH=$PATH:`pwd`/bin
-    #cd ../..
+    cd tmp
+    wget "https://phantomjs.googlecode.com/files/phantomjs-1.9.1-linux-x86_64.tar.bz2" -O phantomjs.tar.bz2
+    tar xvjf phantomjs.tar.bz2
+    cd phantomjs*
+    export PATH=$PATH:`pwd`/bin
+    cd ../..
 
     echo "Using phantomjs version:"
     phantomjs --version
