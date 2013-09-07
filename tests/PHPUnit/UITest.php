@@ -176,7 +176,7 @@ abstract class UITest extends IntegrationTestCase
 
     private static function makeDirsAndLinks()
     {
-        $dirs = self::getProcessedAndExpectedDirs();
+        $dirs = array_merge(self::getProcessedAndExpectedDirs(), array(PIWIK_INCLUDE_PATH . '/tmp/sessions'));
         foreach ($dirs as $dir) {
             if (!is_dir($dir)) {
                 mkdir($dir);
