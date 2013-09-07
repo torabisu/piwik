@@ -4,6 +4,7 @@ set -e
 # Install XMLStarlet
 sudo apt-get install -qq xmlstarlet
 
+sudo sh -c "echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections"
 sudo apt-get install -qq ttf-mscorefonts-installer
 
 # Install phantomjs 1.9.1 for UI tests
