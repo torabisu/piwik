@@ -4,6 +4,8 @@ set -e
 # Install XMLStarlet
 sudo apt-get install -qq xmlstarlet
 
+sudo apt-get install -qq ttf-mscorefonts-installer
+
 # Install phantomjs 1.9.1 for UI tests
 if [ "$TEST_DIR" = "UI" ];
 then
