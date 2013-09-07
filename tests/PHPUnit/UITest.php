@@ -112,6 +112,7 @@ abstract class UITest extends IntegrationTestCase
         
         exec($cmd, $output, $result);
         $output = implode("\n", $output);
+        echo "OUTPUT: $output\n";
         if ($result !== 0
             || strpos($output, "ERROR") !== false
         ) {
@@ -204,7 +205,7 @@ abstract class UITest extends IntegrationTestCase
         foreach (self::$recursiveProxyLinkNames as $linkName) {
             $wholePath = PIWIK_INCLUDE_PATH . '/tests/PHPUnit/proxy/' . $linkName;
             if (file_exists($wholePath)) {
-                unlink($wholePath);
+                //unlink($wholePath);
             }
         }
     }

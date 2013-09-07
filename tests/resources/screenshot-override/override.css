@@ -24,7 +24,7 @@
 }
 
 * {
-    font-family: 'Piwik Test Override', serif; /* serif so we know when the font isn't being used */
+    font-family: 'Piwik Test Override';
 }
 
 /**

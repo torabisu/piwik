@@ -2,6 +2,8 @@ var fs = require('fs');
 var app = typeof slimer === 'undefined' ? phantom : slimer;
 var readFileSync = fs.readFileSync || fs.read;
 
+var VERBOSE = true;
+
 var PageRenderer = function() {
     this.start = new Date();
 
@@ -81,6 +83,18 @@ PageRenderer.prototype = {
             } else {
                 console.log("LOGGED: " + message);
             }
+        };
+
+        if (VERBOSE) {
+            this.webpage.onResourceReceived = function (response) {
+                console.log('Response (#' + response.id + ', stage "' + response.stage + '", size "' + response.bodySize +
+                            '", status "' + response.status + '"): ' + response.url);
+            };
+        }
+
+        this.webpage.onResourceError = function (resourceError) {
+            console.log('Unable to load resource (#' + resourceError.id + 'URL:' + resourceError.url + ')');
+            console.log('Error code: ' + resourceError.errorCode + '. Description: ' + resourceError.errorString);
         };
     },
 
