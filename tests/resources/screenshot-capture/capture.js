@@ -55,7 +55,7 @@ PageRenderer.prototype = {
         setTimeout(function () {
             if (url == self.url) {
                 self.webpage.evaluate(function () {
-                    window.piwik._triggerRenderInsane();
+                    console.log("__AJAX_DONE__");
                 });
             }
         }, 1000 * 60);
