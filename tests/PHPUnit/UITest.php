@@ -109,6 +109,7 @@ abstract class UITest extends IntegrationTestCase
         
         exec($cmd, $output, $result);
         $output = implode("\n", $output);
+        echo "OUTPUT: $output\n";
         if ($result !== 0
             || strpos($output, "ERROR") !== false
         ) {
