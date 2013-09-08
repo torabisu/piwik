@@ -41,6 +41,6 @@
     // in case there are no ajax requests, try triggering after a couple secs
     setTimeout(function () {
         triggerRenderIfNoAjax();
-    }, 3000);
+    }, 5000);
 
 }(jQuery));
