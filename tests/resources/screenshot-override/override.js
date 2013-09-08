@@ -27,7 +27,7 @@
                     waitForAll: true,
                     finished: function () {
                         // wait some more to make sure other javascript is executed & the last image is rendered
-                        setTimeout(triggerRender, 10000);
+                        setTimeout(triggerRender, 12000);
                     },
                 });
             }
